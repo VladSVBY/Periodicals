@@ -30,7 +30,7 @@
 			<column name="email" />
 		</property>
 		
-		<many-to-one name="role" class="by.htp.periodicals.domain.Role">
+		<many-to-one name="role" class="by.htp.periodicals.domain.Role" lazy="false">
 			<column name="role" />
 		</many-to-one>
 	</class>

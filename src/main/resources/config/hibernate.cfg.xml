@@ -9,11 +9,11 @@
 	</property>
 	
 	<property name="hibernate.connection.driver_class">
-		com.mysql.jdbc.Driver
+		com.mysql.cj.jdbc.Driver
 	</property>
 	
 	<property name="hibernate.connection.url">
-		jdbc:mysql://localhost:2016/periodicals
+		jdbc:mysql://localhost:2016/periodicals?useTimezone=true&amp;serverTimezone=UTC
 	</property>
 	
 	<property name="hibernate.connection.username">
@@ -25,7 +25,16 @@
 	
 	<property name="show_sql">true</property>
 	
-	<property name="hbm2ddl.auto">update</property>
+	<property name="hbm2ddl.auto">create</property>
+	
+	<property name="hibernate.connection.pool_size">10</property>
+	
+	<!-- ff hibernate.format_sql:
+ The possible values are true and false
+ It shows the hibernate-generated queries in the pretty format if set as true
+ff hibernate.connection.autocommit:
+ The possible values are true and false
+ It sets the autocommit mode for JDBC -->
 	
 	<!-- List of XML mapping files -->
 	<mapping resource="hbm/user.hbm.xml"/>
