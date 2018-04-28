@@ -39,6 +39,8 @@ ff hibernate.connection.autocommit:
 	<!-- List of XML mapping files -->
 	<mapping resource="hbm/user.hbm.xml"/>
 	<mapping resource="hbm/role.hbm.xml"/>
+	<mapping resource="hbm/publication.hbm.xml"/>
+	<mapping resource="hbm/subscription.hbm.xml"/>
 		
 	</session-factory>
 </hibernate-configuration>

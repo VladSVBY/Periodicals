@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="by.htp.periodicals.domain.Subscription" table="subscriptions">
+	
+		<id name="id" type="int" column="id">
+			<generator class="increment" />
+		</id>
+		
+		<many-to-one name="user" column="user" class="by.htp.periodicals.domain.User" lazy="false" />
+		
+		<many-to-one name="publication" column="publication" class="by.htp.periodicals.domain.Publication" lazy="false" />
+		
+		<property name="startDate" type="java.util.Date">
+			<column name="startDate" />
+		</property>
+		
+		<property name="endDate" type="java.util.Date">
+			<column name="endDate" />
+		</property>
+		
+		<property name="price" type="double">
+			<column name="price" />
+		</property>
+		
+	</class>
+
+</hibernate-mapping>

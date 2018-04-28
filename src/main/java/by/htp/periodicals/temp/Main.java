@@ -1,10 +1,19 @@
 package by.htp.periodicals.temp;
 
+import java.time.LocalDate;
+import java.util.Date;
+
+import by.htp.periodicals.dao.PublicationDao;
 import by.htp.periodicals.dao.RoleDao;
+import by.htp.periodicals.dao.SubscriptionDao;
 import by.htp.periodicals.dao.UserDao;
+import by.htp.periodicals.dao.impl.PublicationDaoImpl;
 import by.htp.periodicals.dao.impl.RoleDaoImpl;
+import by.htp.periodicals.dao.impl.SubscriptionDaoImpl;
 import by.htp.periodicals.dao.impl.UserDaoImpl;
+import by.htp.periodicals.domain.Publication;
 import by.htp.periodicals.domain.Role;
+import by.htp.periodicals.domain.Subscription;
 import by.htp.periodicals.domain.User;
 
 public class Main {
@@ -29,6 +38,20 @@ public class Main {
 		userDao.update(user);
 		User user2 = userDao.read(1);
 		System.out.println(user2);
+		
+		Publication publication = new Publication();
+		publication.setName("Planet");
+		
+		PublicationDao publicationDao = new PublicationDaoImpl();
+		publicationDao.create(publication);
+		
+		Subscription subscription = new Subscription();
+		subscription.setUser(user);
+		subscription.setPrice(25.99);
+		subscription.setPublication(publication);
+		
+		SubscriptionDao subscriptionDao = new SubscriptionDaoImpl();
+		subscriptionDao.create(subscription);
 	}
 
 }
