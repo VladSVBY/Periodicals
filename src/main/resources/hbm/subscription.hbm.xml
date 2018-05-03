@@ -10,9 +10,9 @@
 			<generator class="increment" />
 		</id>
 		
-		<many-to-one name="user" column="user" class="by.htp.periodicals.domain.User" lazy="false" />
+		<many-to-one name="user" column="user" class="by.htp.periodicals.domain.User" lazy="proxy" />
 		
-		<many-to-one name="publication" column="publication" class="by.htp.periodicals.domain.Publication" lazy="false" />
+		<many-to-one name="publication" column="publication" class="by.htp.periodicals.domain.Publication" lazy="proxy" />
 		
 		<property name="startDate" type="java.util.Date">
 			<column name="startDate" />

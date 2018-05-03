@@ -1,8 +1,5 @@
 package by.htp.periodicals.temp;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 import by.htp.periodicals.dao.PublicationDao;
 import by.htp.periodicals.dao.RoleDao;
 import by.htp.periodicals.dao.SubscriptionDao;
@@ -34,10 +31,24 @@ public class Main {
 		userDao.create(user);
 		System.out.println("Generated User_ID : " + user.getId());
 		
+		
+		
+		
 		user.setLastName("Sevashko");
 		userDao.update(user);
+		
+		
+		
 		User user2 = userDao.read(1);
 		System.out.println(user2);
+		
+		user2.setEmail("vladossv@gmail.com");
+		userDao.create(user2);
+		user2.setEmail("vladsvby@yandex.by");
+		userDao.create(user2);
+		
+		
+		
 		
 		Publication publication = new Publication();
 		publication.setName("Planet");
