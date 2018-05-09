@@ -5,9 +5,10 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import by.htp.periodicals.domain.Entity;
+import by.htp.periodicals.dao.util.HibernateUtil;
+import by.htp.periodicals.domain.BaseEntity;
 
-public interface BaseDao<T extends Entity> {
+public interface BaseDao<T extends BaseEntity> {
 
 	default void create(T entity) {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();

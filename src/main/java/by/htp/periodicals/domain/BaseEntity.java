@@ -1,5 +1,5 @@
 package by.htp.periodicals.domain;
 
-public class Entity {
+public abstract class BaseEntity {
 
 }

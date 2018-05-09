@@ -1,11 +1,41 @@
 package by.htp.periodicals.domain;
 
-public class Publication extends Entity {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "publications")
+public class Publication extends BaseEntity {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
+	@Column(name = "name", length = 150)
 	private String name;
+	
+	@Column(name = "description", length = 2000)
 	private String description;
+	
+	@Column(name = "peripdicity")
 	private int periodicity;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "themeID")
+	private Theme theme;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "typeID")
+	private Type type;
+	
+	@Column(name = "price")
 	private double price;
 	
 	public Publication() {
@@ -50,6 +80,14 @@ public class Publication extends Entity {
 	
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public Theme getTheme() {
+		return theme;
+	}
+
+	public void setTheme(Theme theme) {
+		this.theme = theme;
 	}
 
 }

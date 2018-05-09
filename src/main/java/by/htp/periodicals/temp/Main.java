@@ -17,7 +17,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Role role = new Role();
-		role.setRoleName("Administrator");
+		role.setName("Administrator");
 		
 		RoleDao roleDao = new RoleDaoImpl();
 		roleDao.create(role);

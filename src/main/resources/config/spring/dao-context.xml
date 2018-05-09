@@ -3,12 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="roleDao" class="by.htp.periodicals.dao.impl.RoleDaoImpl" />
+	<bean id="roleDao" class="by.htp.periodicals.dao.impl.RoleDaoImpl" scope="singleton" />
 
-	<bean id="userDao" class="by.htp.periodicals.dao.impl.UserDaoImpl" />
+	<bean id="userDao" class="by.htp.periodicals.dao.impl.UserDaoImpl" scope="singleton" />
 	
-	<bean id="publicationDao" class="by.htp.periodicals.dao.impl.PublicationDaoImpl" />
+	<bean id="publicationDao" class="by.htp.periodicals.dao.impl.PublicationDaoImpl" scope="singleton" />
 	
-	<bean id="subscriptionDao" class="by.htp.periodicals.dao.impl.SubscriptionDaoImpl" />
+	<bean id="subscriptionDao" class="by.htp.periodicals.dao.impl.SubscriptionDaoImpl" scope="singleton" />
 
 </beans>

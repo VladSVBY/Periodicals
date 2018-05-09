@@ -18,6 +18,10 @@
 			<column name="description" />
 		</property>
 		
+		<many-to-one name="theme" class="by.htp.periodicals.domain.Theme" lazy="proxy">
+			<column name="themeID" />
+		</many-to-one>
+		
 		<property name="periodicity" type="int">
 			<column name="periodicity" />
 		</property>

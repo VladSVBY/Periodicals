@@ -1,6 +1,6 @@
 package by.htp.periodicals.domain;
 
-public class User extends Entity{
+public class User extends BaseEntity{
 	
 	private int id;
     private String login;

@@ -30,7 +30,8 @@ public class FrontController extends HttpServlet {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		doProcess(request, response);
 	}
 	
@@ -40,8 +41,8 @@ public class FrontController extends HttpServlet {
 				.getWebApplicationContext(request.getServletContext());
 		String actionName = request.getParameter(REQUEST_PARAM_ACTION);
 		BaseAction action = ActionManager.getAction(actionName, appContext);
-		String page = action.execute(request);
 		if (action != null) {
+			String page = action.execute(request);
 			request.getRequestDispatcher(page).forward(request, response);
 		} else {
 			response.getWriter().println("Incorrect Action!");

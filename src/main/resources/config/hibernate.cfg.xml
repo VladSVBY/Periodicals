@@ -13,7 +13,7 @@
 	</property>
 	
 	<property name="hibernate.connection.url">
-		jdbc:mysql://localhost:2016/periodicals?useTimezone=true&amp;serverTimezone=UTC
+		jdbc:mysql://localhost:2016/periodicals1?useTimezone=true&amp;serverTimezone=UTC
 	</property>
 	
 	<property name="hibernate.connection.username">
@@ -40,9 +40,17 @@ ff hibernate.connection.autocommit:
 	
 	<!-- List of XML mapping files -->
 	<mapping resource="hbm/user.hbm.xml"/>
-	<mapping resource="hbm/role.hbm.xml"/>
-	<mapping resource="hbm/publication.hbm.xml"/>
+	<!--<mapping resource="hbm/role.hbm.xml"/>-->
+	<!--<mapping resource="hbm/publication.hbm.xml"/>-->
 	<mapping resource="hbm/subscription.hbm.xml"/>
+	<!--<mapping resource="hbm/theme.hbm.xml"/>-->
+	<!--<mapping resource="hbm/type.hbm.xml"/>-->
+	
+	<mapping class="by.htp.periodicals.domain.Publication" />
+	<mapping class="by.htp.periodicals.domain.Role" />
+	<mapping class="by.htp.periodicals.domain.Type" />
+	<mapping class="by.htp.periodicals.domain.Theme" />
 		
 	</session-factory>
+	
 </hibernate-configuration>

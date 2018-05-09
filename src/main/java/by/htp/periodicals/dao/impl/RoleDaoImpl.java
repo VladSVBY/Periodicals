@@ -6,8 +6,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import by.htp.periodicals.dao.HibernateUtil;
 import by.htp.periodicals.dao.RoleDao;
+import by.htp.periodicals.dao.util.HibernateUtil;
 import by.htp.periodicals.domain.Role;
 
 public class RoleDaoImpl implements RoleDao {

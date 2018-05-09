@@ -2,7 +2,7 @@ package by.htp.periodicals.domain;
 
 import java.util.Date;
 
-public class Subscription extends Entity {
+public class Subscription extends BaseEntity {
 	
 	private int id;
 	private User user;

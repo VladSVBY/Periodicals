@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "roles")
-public class Role extends BaseEntity{
+@Table(name = "thmes")
+public class Theme extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,24 +18,24 @@ public class Role extends BaseEntity{
 	@Column(name = "name")
 	private String name;
 	
-	public Role() {
+	public Theme() {
 		super();
 	}
-
+	
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
-	}
-	
+	}	
+
 }

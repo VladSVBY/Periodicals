@@ -1,4 +1,4 @@
-package by.htp.periodicals.dao;
+package by.htp.periodicals.dao.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

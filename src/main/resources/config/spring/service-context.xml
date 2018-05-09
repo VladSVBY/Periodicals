@@ -3,15 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="userService" class="by.htp.periodicals.service.impl.UserServiceImpl">
+	<bean id="userService" class="by.htp.periodicals.service.impl.UserServiceImpl" scope="singleton">
 		<property name="userDao" ref="userDao" />
 	</bean>
 	
-	<bean id="publicationService" class="by.htp.periodicals.service.impl.PublicationServiceImpl">
+	<bean id="publicationService" class="by.htp.periodicals.service.impl.PublicationServiceImpl" scope="singleton">
 		<property name="publicationDao" ref="publicationDao" />
 	</bean>
 	
-	<bean id="subscriptionService" class="by.htp.periodicals.service.impl.SubscriptionServiceImpl">
+	<bean id="subscriptionService" class="by.htp.periodicals.service.impl.SubscriptionServiceImpl"  scope="singleton">
 		<property name="subscriptionDao" ref="subscrptionDao" />
 	</bean>
 
