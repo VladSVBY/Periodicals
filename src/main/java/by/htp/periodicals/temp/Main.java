@@ -1,12 +1,8 @@
 package by.htp.periodicals.temp;
 
-import by.htp.periodicals.dao.PublicationDao;
 import by.htp.periodicals.dao.RoleDao;
-import by.htp.periodicals.dao.SubscriptionDao;
 import by.htp.periodicals.dao.UserDao;
-import by.htp.periodicals.dao.impl.PublicationDaoImpl;
 import by.htp.periodicals.dao.impl.RoleDaoImpl;
-import by.htp.periodicals.dao.impl.SubscriptionDaoImpl;
 import by.htp.periodicals.dao.impl.UserDaoImpl;
 import by.htp.periodicals.domain.Publication;
 import by.htp.periodicals.domain.Role;
@@ -46,23 +42,6 @@ public class Main {
 		userDao.create(user2);
 		user2.setEmail("vladsvby@yandex.by");
 		userDao.create(user2);
-		
-		
-		
-		
-		Publication publication = new Publication();
-		publication.setName("Planet");
-		
-		PublicationDao publicationDao = new PublicationDaoImpl();
-		publicationDao.create(publication);
-		
-		Subscription subscription = new Subscription();
-		subscription.setUser(user);
-		subscription.setPrice(25.99);
-		subscription.setPublication(publication);
-		
-		SubscriptionDao subscriptionDao = new SubscriptionDaoImpl();
-		subscriptionDao.create(subscription);
 	}
 
 }

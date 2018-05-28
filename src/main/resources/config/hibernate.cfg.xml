@@ -13,7 +13,7 @@
 	</property>
 	
 	<property name="hibernate.connection.url">
-		jdbc:mysql://localhost:2016/periodicals1?useTimezone=true&amp;serverTimezone=UTC
+		jdbc:mysql://localhost:2016/periodicals?useTimezone=true&amp;serverTimezone=UTC
 	</property>
 	
 	<property name="hibernate.connection.username">
@@ -25,31 +25,15 @@
 	
 	<property name="show_sql">true</property>
 	
-	<property name="hbm2ddl.auto">create</property>
+	<property name="hbm2ddl.auto">update</property>
 	
 	<property name="hibernate.enable_lazy_load_no_trans">true</property>
 
 	<property name="hibernate.connection.pool_size">10</property>
 	
-	<!-- ff hibernate.format_sql:
- The possible values are true and false
- It shows the hibernate-generated queries in the pretty format if set as true
-ff hibernate.connection.autocommit:
- The possible values are true and false
- It sets the autocommit mode for JDBC -->
-	
 	<!-- List of XML mapping files -->
-	<mapping resource="hbm/user.hbm.xml"/>
-	<!--<mapping resource="hbm/role.hbm.xml"/>-->
-	<!--<mapping resource="hbm/publication.hbm.xml"/>-->
-	<mapping resource="hbm/subscription.hbm.xml"/>
-	<!--<mapping resource="hbm/theme.hbm.xml"/>-->
-	<!--<mapping resource="hbm/type.hbm.xml"/>-->
-	
-	<mapping class="by.htp.periodicals.domain.Publication" />
 	<mapping class="by.htp.periodicals.domain.Role" />
-	<mapping class="by.htp.periodicals.domain.Type" />
-	<mapping class="by.htp.periodicals.domain.Theme" />
+	<mapping class="by.htp.periodicals.domain.User" />
 		
 	</session-factory>
 	

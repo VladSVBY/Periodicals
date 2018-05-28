@@ -1,15 +1,46 @@
 package by.htp.periodicals.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users")
 public class User extends BaseEntity{
 	
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
+	@Column(name = "login")
     private String login;
-    private String password;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private Role role;
     
+	@Column(name = "password")
+    private String password;
+    
+	@Column(name = "first_name")
+    private String firstName;
+    
+	@Column(name = "last_name")
+    private String lastName;
+    
+	@Column(name = "email")
+    private String email;
+	
+	@Column(name = "balance")
+    private double balance;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "role_id")
+    private Role role;
+
 	public User() {
 		super();
 	}
@@ -42,8 +73,8 @@ public class User extends BaseEntity{
 		return firstName;
 	}
 
-	public void setFirstName(String name) {
-		this.firstName = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
@@ -62,6 +93,14 @@ public class User extends BaseEntity{
 		this.email = email;
 	}
 
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
 	public Role getRole() {
 		return role;
 	}
@@ -71,15 +110,12 @@ public class User extends BaseEntity{
 	}
 
 	@Override
-	public String toString() {
-		return "User [id=" + id + ", login=" + login + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", email=" + email + ", role=" + role + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(balance);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + id;
@@ -99,6 +135,8 @@ public class User extends BaseEntity{
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
+		if (Double.doubleToLongBits(balance) != Double.doubleToLongBits(other.balance))
+			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;

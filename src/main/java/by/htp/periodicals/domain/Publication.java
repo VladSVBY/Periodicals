@@ -24,7 +24,7 @@ public class Publication extends BaseEntity {
 	@Column(name = "description", length = 2000)
 	private String description;
 	
-	@Column(name = "peripdicity")
+	@Column(name = "periodicity")
 	private int periodicity;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

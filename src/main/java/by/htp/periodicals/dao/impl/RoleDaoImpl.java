@@ -5,11 +5,13 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import by.htp.periodicals.dao.RoleDao;
 import by.htp.periodicals.dao.util.HibernateUtil;
 import by.htp.periodicals.domain.Role;
 
+@Repository
 public class RoleDaoImpl implements RoleDao {
 
 	@Override
