@@ -25,7 +25,7 @@
 	
 	<property name="show_sql">true</property>
 	
-	<property name="hbm2ddl.auto">update</property>
+	<!--  <property name="hbm2ddl.auto">update</property>-->
 	
 	<property name="hibernate.enable_lazy_load_no_trans">true</property>
 
@@ -34,6 +34,10 @@
 	<!-- List of XML mapping files -->
 	<mapping class="by.htp.periodicals.domain.Role" />
 	<mapping class="by.htp.periodicals.domain.User" />
+	<mapping class="by.htp.periodicals.domain.Type" />
+	<mapping class="by.htp.periodicals.domain.Theme" />
+	<mapping class="by.htp.periodicals.domain.Publication" />
+	<mapping class="by.htp.periodicals.domain.Review" />
 		
 	</session-factory>
 	

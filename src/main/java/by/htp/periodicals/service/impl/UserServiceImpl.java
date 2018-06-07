@@ -22,8 +22,8 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public boolean loginExist(String login) {
-		List<User> users = userDao.findByLogin(login);
-		return !users.isEmpty();
+		User user = userDao.findByLogin(login);
+		return user != null;
 	}
 
 	public void setUserDao(UserDao userDao) {

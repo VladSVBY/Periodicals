@@ -1,4 +1,4 @@
-package by.htp.periodicals.web.util;
+package by.htp.periodicals.util;
 
 public class ValidateNullParamException extends RuntimeException {
 	

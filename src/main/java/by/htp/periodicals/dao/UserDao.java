@@ -6,7 +6,7 @@ import by.htp.periodicals.domain.User;
 
 public interface UserDao extends BaseDao<User> {
 	
-	List<User> findByLogin(String login);
+	User findByLogin(String login);
 	
 	List<User> findByLoginAndPassword(String login, String password);
 }

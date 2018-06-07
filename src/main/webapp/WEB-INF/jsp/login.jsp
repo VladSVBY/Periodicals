@@ -14,17 +14,20 @@
 		<link href="<c:url value="/resources/css/login.css" />" rel="stylesheet" /> 
 	</head>
 <body>
-	<form:form modelAttribute="user" action="${contextPath}/login/login_user" id="login">
+	<form action="<c:url value="/j_spring_security_check" />" id="login" method="post">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	    <h1>Log In</h1>
 	    <fieldset id="inputs">
-	        <form:input path="login" id="username" type="text" placeholder="Username" />   
-	        <form:input path="password" id="password" type="password" placeholder="Password" />
+	        <input id="username" name="j_login" type="text" placeholder="Username" required autofocus />   
+	        <input  id="password" name="j_password" type="password" placeholder="Password" required />
 	    </fieldset>
-	    <span><c:out value="${fail_msg}" /></span>
+	    <span><c:out value="${error_msg}" /></span>
 	    <fieldset id="actions">
 	        <input type="submit" id="submit" value="Log in">
+	        <input id="remember" name="_spring_security_remember_me" type="checkbox" />
+	        <label for="remember">Запомнить</label>
 	        <a href="registration">Register</a>
 	    </fieldset>
-	</form:form>
+	</form>
 </body>
 </html>

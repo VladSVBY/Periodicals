@@ -14,6 +14,6 @@
 		<link href="<c:url value="/resources/css/login.css" />" rel="stylesheet" /> 
 	</head>
 <body>
-	<h2>Hello <c:out value="${current_user.login}" />!!!</h2>
+	<h2>Hello <c:out value="${user}" />!!!</h2>
 </body>
 </html>

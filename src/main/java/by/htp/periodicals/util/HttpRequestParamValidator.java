@@ -1,7 +1,7 @@
-package by.htp.periodicals.web.util;
+package by.htp.periodicals.util;
 
 import by.htp.periodicals.domain.User;
-import by.htp.periodicals.web.util.ValidateNullParamException;
+import by.htp.periodicals.util.ValidateNullParamException;
 
 public final class HttpRequestParamValidator {
 	

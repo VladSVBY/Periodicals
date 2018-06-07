@@ -15,8 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import by.htp.periodicals.dao.UserDao;
 import by.htp.periodicals.domain.User;
 import by.htp.periodicals.service.UserService;
-import by.htp.periodicals.web.util.HttpRequestParamValidator;
-import by.htp.periodicals.web.util.ValidateNullParamException;
+import by.htp.periodicals.util.HttpRequestParamValidator;
+import by.htp.periodicals.util.ValidateNullParamException;
 
 @Controller
 @RequestMapping(value = "/registration")

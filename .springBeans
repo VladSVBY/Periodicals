@@ -10,6 +10,8 @@
 		<config>src/main/resources/config/spring/application-context.xml</config>
 		<config>src/main/webapp/WEB-INF/FrontController-servlet.xml</config>
 		<config>src/main/resources/config/spring/dao-context.xml</config>
+		<config>src/main/resources/config/spring/application-security.xml</config>
+		<config>src/main/resources/config/spring/mysql-datasource.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
