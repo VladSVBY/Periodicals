@@ -38,6 +38,7 @@
 	<mapping class="by.htp.periodicals.domain.Theme" />
 	<mapping class="by.htp.periodicals.domain.Publication" />
 	<mapping class="by.htp.periodicals.domain.Review" />
+	<mapping class="by.htp.periodicals.domain.Subscription" />
 		
 	</session-factory>
 	

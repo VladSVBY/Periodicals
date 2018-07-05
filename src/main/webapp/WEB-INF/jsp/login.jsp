@@ -12,8 +12,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Login Page</title>
 		<link href="<c:url value="/resources/css/login.css" />" rel="stylesheet" /> 
+		<link href="<c:url value="/resources/css/bootstrap/bootstrap.min.css" />" rel="stylesheet">
 	</head>
 <body>
+	<%@include file="include/nav.jsp" %>
 	<form action="<c:url value="/j_spring_security_check" />" id="login" method="post">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	    <h1>Log In</h1>

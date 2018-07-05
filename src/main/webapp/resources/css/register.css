@@ -99,37 +99,6 @@ html, body
     position: relative;
 }
 
-#login h1:after, #login h1:before
-{
-    background-color: #777;
-    content: "";
-    height: 1px;
-    position: absolute;
-    top: 15px;
-    width: 120px;   
-}
-
-#login h1:after
-{ 
-    background-image: -webkit-gradient(linear, left top, right top, from(#777), to(#fff));
-    background-image: -webkit-linear-gradient(left, #777, #fff);
-    background-image: -moz-linear-gradient(left, #777, #fff);
-    background-image: -ms-linear-gradient(left, #777, #fff);
-    background-image: -o-linear-gradient(left, #777, #fff);
-    background-image: linear-gradient(left, #777, #fff);      
-    right: 0;
-}
-
-#login h1:before
-{
-    background-image: -webkit-gradient(linear, right top, left top, from(#777), to(#fff));
-    background-image: -webkit-linear-gradient(right, #777, #fff);
-    background-image: -moz-linear-gradient(right, #777, #fff);
-    background-image: -ms-linear-gradient(right, #777, #fff);
-    background-image: -o-linear-gradient(right, #777, #fff);
-    background-image: linear-gradient(right, #777, #fff);
-    left: 0;
-}
 
 /*--------------------*/
 
@@ -210,10 +179,11 @@ html, body
     float: left;
     height: 35px;
     padding: 0;
-    width: 120px;
+    width: 180px;
     cursor: pointer;
     font: bold 15px Arial, Helvetica;
     color: #8f5a0a;
+    margin: auto;
 }
 
 #submit:hover,#submit:focus

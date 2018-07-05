@@ -5,28 +5,55 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Главная страница</title>
+	<link href="<c:url value="/resources/css/bootstrap/bootstrap.min.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/index.css" />" rel="stylesheet" />
 </head>
 <body>
-Hello
-	<table border="1" >
-		<tr>
-			<th>Название издания</th>
-			<th>Периодичьность</th>
-			<th>Рейтинг</th>
-			<th>Цена</th>
-		</tr>
-		<tbody>
-			<c:forEach items="${publication_group}" var="publication">
-				<tr>
-					<td><a href="publication/${publication.id}">${publication.name}</a></td>
-					<td>${publication.periodicity}</td>
-					<td>${publication.rating}</td>
-					<td>${publication.price}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	<%@include file="include/nav.jsp" %>
+	
+	<div class="publications">
+	<div class="row">
+                    <div class=col-md-1>
+                        Индекс
+                    </div>
+                    <div class=col-md-5>
+                        Название издания
+                    </div>
+                    <div class=col-md-2>
+                        Периодичность
+                    </div>
+                    <div class=col-md-1>
+                        Цена
+                    </div>
+                    <div class=col-md-1>
+                        Рейтинг
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+	<c:forEach items="${publication_group}" var="publication">
+                <a href="<c:url value="publication/${publication.id}" />"><div class="row">
+                    <div class=col-md-1>
+                        ${publication.id}
+                    </div>
+                    <div class=col-md-5>
+                        ${publication.name}
+                    </div>
+                    <div class=col-md-2>
+                        ${publication.periodicity}
+                    </div>
+                    <div class=col-md-1>
+                        ${publication.price}
+                    </div>
+                    <div class=col-md-1>
+                        ${publication.rating}
+                    </div>
+                </div></a>
+            <hr size="4">
+    </c:forEach>
+    </div>
 </body>
 </html>

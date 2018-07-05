@@ -6,17 +6,18 @@
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
 	<http use-expressions="true">
-		<intercept-url pattern="/user/main" access="hasRole('ROLE_USER')"/>
-		<intercept-url pattern="/registration" access="isAuthenticated()"/>
+		<intercept-url pattern="/user/**" access="hasRole('ROLE_USER')"/>
 		
 		<form-login 
 			login-page="/login"
-			default-target-url="/user/main"
+			default-target-url="/user/profile"
 			username-parameter="j_login"
 			password-parameter="j_password"
 			login-processing-url="/j_spring_security_check"/>
 			
 		<access-denied-handler error-page="/accessDenied"/>
+		
+		<logout logout-url="/j_spring_security_logout" logout-success-url="/login"/>
 			
 		<csrf disabled="true"/>		
 		

@@ -2,33 +2,45 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+	<sec:authorize access="hasRole('ROLE_USER')">
+			<sec:authentication property="principal.username" var="username"/>
+	</sec:authorize>
+	
+	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>${publication.name}</title>
+	<link href="<c:url value="/resources/css/bootstrap/bootstrap.min.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/publication_page.css" />" rel="stylesheet" />
 </head>
 <body>
-	<div>
-		Издание: ${publication.name}<br>
+	<%@include file="include/nav.jsp" %>
+	
+	<div class="main">
+		<h1>Издание: ${publication.name}</h1><br>
 		Тема: ${publication.theme.name}<br>
+		Рейтинг: ${publication.rating}<br>
 		Тип: ${publication.type.name}
 		<div>
 			Описание: ${publication.description}
 		</div>
 		Рейтинг: ${publication.rating}<br>
 		Цена: ${publication.price}
-	</div>
+	
 
 	<hr>
 	
-	<c:if test="${current_user == null}">
+	<c:if test="${username == null}">
 		<p><a href="#">Войдите</a> или <a href="#">зарегистрируйтесь</a>, чтобы оформить подписку или оставить отзыв</p>
 	</c:if>
 	
-	<c:if test="${current_user != null}">
-		<a href="#">Оформить подписку</a>
+	<c:if test="${username != null}">
+		<a href="${contextPath}/user/prepare_subscription/${publication.id}">Оформить подписку</a>
 		<hr>
 		<div>
 			Ваш отзыв:
@@ -50,13 +62,14 @@
 	
 	<hr>
 	<div>
-		<p>Отзывы:</p>
+		<h2>Отзывы:</h2>
 		<c:forEach items="${publication.reviews}" var="review">
 				<p>${review.date} <b>${review.user.firstName}</b></p>
 				<p>${review.header}</p>
 				<p><b>Оценка</b> ${review.mark}</p>
 				<p>${review.text}</p>
 			</c:forEach>
+	</div>
 	</div>
 </body>
 </html>

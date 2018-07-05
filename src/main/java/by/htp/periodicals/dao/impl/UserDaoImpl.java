@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import by.htp.periodicals.dao.UserDao;
 import by.htp.periodicals.dao.util.HibernateUtil;
 import by.htp.periodicals.domain.User;
-import by.htp.periodicals.service.UserService;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -40,7 +39,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User findByLogin(String login) {
+	public User find(String login) {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
 		Criteria criteria = session.createCriteria(User.class);
@@ -55,7 +54,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public List<User> findByLoginAndPassword(String login, String password) {
+	public List<User> find(String login, String password) {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
 		Criteria criteria = session.createCriteria(User.class);

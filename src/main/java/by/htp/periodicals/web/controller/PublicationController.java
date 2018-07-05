@@ -1,12 +1,14 @@
 package by.htp.periodicals.web.controller;
 
 import java.io.IOException;
+import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,15 +21,20 @@ import by.htp.periodicals.domain.Review;
 import by.htp.periodicals.domain.User;
 import by.htp.periodicals.service.PublicationService;
 import by.htp.periodicals.service.ReviewService;
+import by.htp.periodicals.service.UserService;
+import by.htp.periodicals.service.impl.PublicationServiceImpl;
 
 @Controller
 public class PublicationController {
 	
 	@Autowired
-	PublicationService publicationService;
+	 private PublicationService publicationService;
 	
 	@Autowired
-	ReviewService reviewService;
+	private ReviewService reviewService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(HttpServletRequest request) {
@@ -45,14 +52,14 @@ public class PublicationController {
 	}
 	
 	@RequestMapping(value = "publication/{publicationId}/add_review", method = RequestMethod.POST)
-	public void addReview(@ModelAttribute("review") Review review, @PathVariable("publicationId") int publicationId, HttpServletResponse response, HttpSession session) {
+	public void addReview(@ModelAttribute("review") Review review, @PathVariable("publicationId") int publicationId, HttpServletResponse response, HttpSession session, Principal principal, HttpServletRequest request) {
 		Publication publication = publicationService.read(publicationId);
-		User user = (User) session.getAttribute("current_user");
+		User user = userService.find(principal.getName());
 		review.setUser(user);
 		review.setPublication(publication);
 		reviewService.create(review);
 		try {
-			response.sendRedirect("publication/" + publication.getId());
+			response.sendRedirect(request.getHeader("referer"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -22,12 +22,8 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public boolean loginExist(String login) {
-		User user = userDao.findByLogin(login);
+		User user = userDao.find(login);
 		return user != null;
-	}
-
-	public void setUserDao(UserDao userDao) {
-		this.userDao = userDao;
 	}
 
 	@Override
@@ -38,12 +34,21 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findUserByLoginAndPassword(String login, String password) {
-		List<User> users = userDao.findByLoginAndPassword(login, password);
+	public User find(String login, String password) {
+		List<User> users = userDao.find(login, password);
 		if (!users.isEmpty()) {
 			return users.get(0);
 		}
 		return null;
+	}
+	
+	@Override
+	public User find(String login) {
+		return userDao.find(login);
+	}
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
 	}
 
 }

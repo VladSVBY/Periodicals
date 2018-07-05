@@ -1,0 +1,13 @@
+#main {
+	margin-top: 80px;
+}
+.right {
+	float: right;
+	overflow: hidden;
+	margin-right: 1000px;
+}
+
+.hidden {
+	overflow: hidden;
+	position: relative;
+}
